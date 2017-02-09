@@ -10,4 +10,6 @@ package com.pengpeng.android.client.mvp.model;
  */
 
 public class at {
+
+    private String i = "aa";
 }
