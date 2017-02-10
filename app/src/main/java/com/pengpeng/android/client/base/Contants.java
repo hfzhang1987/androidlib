@@ -11,7 +11,8 @@ package com.pengpeng.android.client.base;
 
 public class Contants {
 
-
+    public static final long HTTP_TIMEOUT = 60;
+    public static final long HTTP_CONNECTTIMEOUT = 60;
 
 
 }
