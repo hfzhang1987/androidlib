@@ -26,7 +26,6 @@ public class A {
         b = test1(b);
         System.out.print(b);
 //        int a =1;
-
     }
 //java无法改变外部变量
     public static int test1(int b){
