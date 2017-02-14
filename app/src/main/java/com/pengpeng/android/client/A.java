@@ -14,7 +14,7 @@ import java.lang.reflect.Field;
  */
 
 public class A {
-    private static String b = "ccd";
+    private static String b = "ccsd";
     public static void main(String[] args){
 //        A a = new A();
 //        a.test1(b);
