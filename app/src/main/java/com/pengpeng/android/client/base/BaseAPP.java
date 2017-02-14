@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
+import com.pengpeng.android.client.utils.WindowUtils;
 import com.squareup.leakcanary.LeakCanary;
 
 /**
@@ -22,6 +23,7 @@ public class BaseAPP extends Application {
     public void onCreate() {
         LeakCanary.install(this);
         initLogger();
+        WindowUtils.setDisplayWidth_Height(this);
         super.onCreate();
     }
 

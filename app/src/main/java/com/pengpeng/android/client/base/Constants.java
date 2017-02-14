@@ -9,7 +9,12 @@ package com.pengpeng.android.client.base;
  * @date 2017/2/9 17:53
  */
 
-public class Contants {
+public class Constants {
+
+
+    //手机窗体宽高
+    public static int displayWidth;  //屏幕宽度
+    public static int displayHeight; //屏幕高度
 
     public static final long HTTP_TIMEOUT = 60;
     public static final long HTTP_CONNECTTIMEOUT = 60;
