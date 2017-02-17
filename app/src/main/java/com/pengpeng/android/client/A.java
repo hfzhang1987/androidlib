@@ -1,7 +1,5 @@
 package com.pengpeng.android.client;
 
-import junit.framework.Test;
-
 import java.lang.reflect.Field;
 
 /**
@@ -15,27 +13,29 @@ import java.lang.reflect.Field;
 
 public class A {
     private static String b = "ccsd";
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
 //        A a = new A();
 //        a.test1(b);
 //        System.out.print(b+"\n");
 //        b ="22333222";
 //        System.out.print(b);
 
-        int b =2;
+        int b = 21;
         b = test1(b);
         System.out.print(b);
 //        int a =1;
     }
-//java无法改变外部变量
-    public static int test1(int b){
+
+    //java无法改变外部变量
+    public static int test1(int b) {
         A test = new A();
         Field field = null;
         try {
-            field =A.class.getField("b");
+            field = A.class.getField("b");
             field.setAccessible(true);
             try {
-                field.setInt(test,2000);
+                field.setInt(test, 2000);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
@@ -44,16 +44,16 @@ public class A {
             e.printStackTrace();
         }
 
-return b;
+        return b;
 
-//                b =200;
+//        b =200;
 //        System.out.print(b);
 //        System.exit(0);
 //        return b;
     }
 
-    public String test1(String b){
-        b ="dd";
+    public String test1(String b) {
+        b = "dd";
         return b;
     }
 }

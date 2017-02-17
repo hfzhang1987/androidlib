@@ -18,6 +18,8 @@ import com.squareup.leakcanary.LeakCanary;
 
 public class BaseAPP extends Application {
 
+    private static final String TAG = "Pengpeng";
+
 
     @Override
     public void onCreate() {
@@ -29,10 +31,9 @@ public class BaseAPP extends Application {
 
     private void initLogger(){
         //https://github.com/orhanobut/logger
-        Logger.init()                           // default PRETTYLOGGER or use just init()
+        Logger.init(TAG)                        // default PRETTYLOGGER or use just init()
                 .methodCount(3)                 // default 2
-                .hideThreadInfo()               // default shown
-                .logLevel(LogLevel.NONE)        // default LogLevel.FULL
-                .methodOffset(2); //default AndroidLogAdapter
+                .logLevel(LogLevel.FULL)        // default LogLevel.FULL
+                .methodOffset(2);               // 设置调用堆栈的函数偏移值，默认是 0
     }
 }

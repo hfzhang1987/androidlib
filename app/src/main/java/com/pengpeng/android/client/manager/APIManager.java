@@ -6,7 +6,7 @@ import com.pengpeng.android.client.api.interceptor.CacheInterceptor;
 import com.pengpeng.android.client.api.interceptor.HttpLoggingInterceptor;
 import com.pengpeng.android.client.api.server.BaseServer;
 import com.pengpeng.android.client.api.server.TestServer;
-import com.pengpeng.android.client.base.Contants;
+import com.pengpeng.android.client.base.Constants;
 
 import java.util.concurrent.TimeUnit;
 
@@ -41,8 +41,8 @@ public class APIManager {
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .readTimeout(Contants.HTTP_TIMEOUT, TimeUnit.SECONDS)
-                .connectTimeout(Contants.HTTP_CONNECTTIMEOUT,TimeUnit.SECONDS)
+                .readTimeout(Constants.HTTP_TIMEOUT, TimeUnit.SECONDS)
+                .connectTimeout(Constants.HTTP_CONNECTTIMEOUT,TimeUnit.SECONDS)
                 .addInterceptor(loggingInterceptor)
                 .addInterceptor(new CacheInterceptor())
                 .build();
