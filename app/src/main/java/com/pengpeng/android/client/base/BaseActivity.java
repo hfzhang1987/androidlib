@@ -5,20 +5,81 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
+import com.orhanobut.logger.Logger;
+import com.pengpeng.android.client.ui.controller.BaseActController;
+
+import butterknife.ButterKnife;
+
 /**
  * @author zhanghongfei
  * @version V:2.0.0
  * @Title BaseActivity
  * @Package com.pengpeng.android.client.base
- * @Description:
+ * @Description:模板模式
  * @date 2017/2/9 17:52
  */
 
-public class BaseActivity extends AppCompatActivity implements StatisticsInterface{
+public abstract class BaseActivity extends AppCompatActivity implements StatisticsInterface{
 
+    protected abstract int layoutId();
+    BaseActController mBACtr;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        onSetTheme();
+        super.onCreate(savedInstanceState);
+        if (layoutId()!=0){
+            setContentView(layoutId());
+        }else {
+            new Throwable("You need to add the parent layout!!!!!!!!");
+        }
+        ButterKnife.bind(this);
+        mBACtr = BaseActController.getInstance();
+        Logger.e("执行了 onCreate");
     }
+
+    //设置自定义主题
+    protected void onSetTheme() {
+        //自定义风格
+        //setTheme();
+    }
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Logger.e("执行了 onRestart");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Logger.e("执行了 onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Logger.e("执行了 onResume");
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Logger.e("执行了 onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Logger.e("执行了 onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Logger.e("执行了 onDestroy");
+    }
+
 }

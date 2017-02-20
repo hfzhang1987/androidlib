@@ -32,6 +32,12 @@ public class TestActivity extends BaseActivity {
      */
     @BindView(R.id.btn)
     Button btn;
+
+    @Override
+    protected int layoutId() {
+        return 0;
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

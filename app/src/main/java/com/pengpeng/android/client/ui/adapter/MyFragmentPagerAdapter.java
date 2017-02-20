@@ -41,9 +41,18 @@ public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
              return new MyFragment();
          }else if(tabList.get(position).equals("bbb")) {
              return new MyTwoFragment();
-         }else{
+         }else if(tabList.get(position).equals("ccc")) {
              return new ThreeFragment();
+         }else if(tabList.get(position).equals("ddd")) {
+             return new FourFragment();
+         }else if(tabList.get(position).equals("eee")) {
+             return new FiveFragment();
+         }else if(tabList.get(position).equals("fff")) {
+             return new SixFragment();
+         }else if(tabList.get(position).equals("ggg")) {
+             return new SevenFragment();
          }
+        return null;
     }
 
     @Override

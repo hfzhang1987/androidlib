@@ -31,6 +31,12 @@ public class TwoActivity extends BaseActivity {
     @BindView(R.id.viewPager)
     ViewPager viewPager;
     private ArrayList<String> tabList = new ArrayList<>();
+
+    @Override
+    protected int layoutId() {
+        return 0;
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +46,10 @@ public class TwoActivity extends BaseActivity {
         tabList.add("aaa");
         tabList.add("bbb");
         tabList.add("ccc");
+        tabList.add("ddd");
+        tabList.add("eee");
+        tabList.add("fff");
+        tabList.add("ggg");
 //        for (int i = 0; i < 1; i++) {
 //            tabList.add(11111*i+"");
 //        }

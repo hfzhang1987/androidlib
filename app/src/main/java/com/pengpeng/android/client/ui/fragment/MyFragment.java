@@ -31,13 +31,13 @@ public class MyFragment extends BaseFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-//        Logger.e("执行了 MyFragment onAttach");
+        Logger.e("执行了 MyFragment onAttach");
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        Logger.e("执行了 MyFragment onCreate");
+        Logger.e("执行了 MyFragment onCreate");
     }
 
     @Nullable
@@ -53,49 +53,49 @@ public class MyFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        Logger.e("执行了 MyFragment onActivityCreated");
+        Logger.e("执行了 MyFragment onActivityCreated");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-//        Logger.e("执行了 MyFragment onStart");
+        Logger.e("执行了 MyFragment onStart");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-//        Logger.e("执行了 MyFragment onResume");
+        Logger.e("执行了 MyFragment onResume");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-//        Logger.e("执行了 MyFragment onPause");
+        Logger.e("执行了 MyFragment onPause");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-//        Logger.e("执行了 MyFragment onStop");
+        Logger.e("执行了 MyFragment onStop");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-//        Logger.e("执行了 MyFragment onDestroyView");
+        Logger.e("执行了 MyFragment onDestroyView");
 
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-//        Logger.e("执行了 MyFragment onDestroy");
+        Logger.e("执行了 MyFragment onDestroy");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-//        Logger.e("执行了 MyFragment onDetach");
+        Logger.e("执行了 MyFragment onDetach");
     }
 }
