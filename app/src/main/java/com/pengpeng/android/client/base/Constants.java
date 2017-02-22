@@ -11,7 +11,6 @@ package com.pengpeng.android.client.base;
 
 public class Constants {
 
-
     //手机窗体宽高
     public static int displayWidth;  //屏幕宽度
     public static int displayHeight; //屏幕高度

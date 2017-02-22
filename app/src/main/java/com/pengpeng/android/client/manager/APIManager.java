@@ -1,6 +1,5 @@
 package com.pengpeng.android.client.manager;
 
-import com.orhanobut.logger.Logger;
 import com.pengpeng.android.client.api.TestApi;
 import com.pengpeng.android.client.api.interceptor.CacheInterceptor;
 import com.pengpeng.android.client.api.interceptor.HttpLoggingInterceptor;
@@ -28,7 +27,7 @@ public class APIManager {
 
     private static APIManager mAPIManager = new APIManager();
 
-    public static APIManager getInstance() {
+    private static APIManager getInstance() {
         return mAPIManager;
     }
 
@@ -60,5 +59,13 @@ public class APIManager {
             return APIManager.getInstance().mTestRetrofit.create(api);
         }
         return null;
+    }
+
+    public static BaseServer getServer(Class api) {
+        if (TestApi.class == api) {
+            return TestServer.getInstance();
+        } else {
+            return null;
+        }
     }
 }

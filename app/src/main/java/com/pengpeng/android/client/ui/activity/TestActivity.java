@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.orhanobut.logger.Logger;
 import com.pengpeng.android.client.R;
 import com.pengpeng.android.client.base.BaseActivity;
+import com.pengpeng.android.client.mvp.presenter.TestPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,8 +46,9 @@ public class TestActivity extends BaseActivity {
         ButterKnife.bind(this);
         btn.setText("跳转act");
         Logger.e("执行了 onCreate");
+        TestPresenter testPresenter = new TestPresenter();
+        testPresenter.
     }
-
 
     @OnClick(R.id.btn)
     public void upToAct(){
