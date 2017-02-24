@@ -8,10 +8,13 @@ import android.widget.Button;
 import com.orhanobut.logger.Logger;
 import com.pengpeng.android.client.R;
 import com.pengpeng.android.client.base.BaseActivity;
+import com.pengpeng.android.client.mvp.model.TestBean;
 import com.pengpeng.android.client.mvp.presenter.TestPresenter;
+import com.pengpeng.android.client.mvp.view.ILoadView;
+
+import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -23,7 +26,7 @@ import butterknife.OnClick;
  * @date 2017/2/9 17:52
  */
 
-public class TestActivity extends BaseActivity {
+public class TestActivity extends BaseActivity implements ILoadView<TestBean> {
 
     /**
      * 1、强大的View绑定和Click事件处理功能，简化代码，提升开发效率
@@ -33,29 +36,29 @@ public class TestActivity extends BaseActivity {
      */
     @BindView(R.id.btn)
     Button btn;
+    private TestPresenter testPresenter;
 
     @Override
     protected int layoutId() {
-        return 0;
+        return R.layout.activity_main;
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
         btn.setText("跳转act");
         Logger.e("执行了 onCreate");
-        TestPresenter testPresenter = new TestPresenter();
-        testPresenter.
+        testPresenter = new TestPresenter();
+        testPresenter.login(this);
     }
 
     @OnClick(R.id.btn)
     public void upToAct(){
-        Intent intent = new Intent(this,TwoActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this,TwoActivity.class);
+//        startActivity(intent);
+        testPresenter.login(this);
+        Logger.e("获取网络数据===");
     }
-
 
     @Override
     protected void onRestart() {
@@ -92,5 +95,20 @@ public class TestActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         Logger.e("执行了 onDestroy");
+    }
+
+    @Override
+    public void onSuccess(List<TestBean> data) {
+        Logger.e(data.get(0).getId());
+    }
+
+    @Override
+    public void onCache(long cacheTime, List<TestBean> data) {
+        Logger.e("缓存");
+    }
+
+    @Override
+    public void onFail(int errorCode, String errorMsg) {
+        Logger.e(errorCode+"======>"+errorMsg);
     }
 }

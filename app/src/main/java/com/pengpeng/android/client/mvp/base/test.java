@@ -3,13 +3,11 @@ package com.pengpeng.android.client.mvp.base;
 /**
  * @author zhanghongfei
  * @version V:2.0.0
- * @Title CacheCallBack
+ * @Title test
  * @Package com.pengpeng.android.client.mvp.base
  * @Description:
- * @date 2017/2/22 11:53
+ * @date 2017/2/23 17:26
  */
 
-public interface CacheCallBack {
-
-    void onLoadCache(long cacheTime,String cacheStr);
+public class test {
 }

@@ -22,7 +22,6 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity extends AppCompatActivity implements StatisticsInterface{
 
     protected abstract int layoutId();
-    BaseActController mBACtr;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -34,7 +33,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Statisti
             new Throwable("You need to add the parent layout!!!!!!!!");
         }
         ButterKnife.bind(this);
-        mBACtr = BaseActController.getInstance();
         Logger.e("执行了 onCreate");
     }
 

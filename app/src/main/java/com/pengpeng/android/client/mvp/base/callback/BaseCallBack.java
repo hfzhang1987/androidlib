@@ -1,4 +1,4 @@
-package com.pengpeng.android.client.mvp.base;
+package com.pengpeng.android.client.mvp.base.callback;
 
 import okhttp3.ResponseBody;
 import retrofit2.Callback;

@@ -2,7 +2,7 @@ package com.pengpeng.android.client.manager;
 
 import com.pengpeng.android.client.api.TestApi;
 import com.pengpeng.android.client.api.interceptor.CacheInterceptor;
-import com.pengpeng.android.client.api.interceptor.HttpLoggingInterceptor;
+import com.pengpeng.android.client.api.interceptor.HeaderInterceptor;
 import com.pengpeng.android.client.api.server.BaseServer;
 import com.pengpeng.android.client.api.server.TestServer;
 import com.pengpeng.android.client.base.Constants;
@@ -10,6 +10,7 @@ import com.pengpeng.android.client.base.Constants;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -43,6 +44,7 @@ public class APIManager {
                 .readTimeout(Constants.HTTP_TIMEOUT, TimeUnit.SECONDS)
                 .connectTimeout(Constants.HTTP_CONNECTTIMEOUT,TimeUnit.SECONDS)
                 .addInterceptor(loggingInterceptor)
+                .addInterceptor(new HeaderInterceptor())
                 .addInterceptor(new CacheInterceptor())
                 .build();
 

@@ -1,6 +1,4 @@
-package com.pengpeng.android.client.mvp.base;
-
-import android.app.Service;
+package com.pengpeng.android.client.mvp.base.callback;
 
 import com.pengpeng.android.client.api.server.BaseServer;
 import com.pengpeng.android.client.mvp.view.ILoadView;

@@ -1,4 +1,4 @@
-package com.pengpeng.android.client.mvp.base;
+package com.pengpeng.android.client.mvp.base.callback;
 
 import com.pengpeng.android.client.api.server.BaseServer;
 import com.pengpeng.android.client.mvp.view.ILoadView;
@@ -8,6 +8,7 @@ import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
@@ -21,9 +22,18 @@ import retrofit2.Response;
 
 public abstract class DefaultCallback<D> extends BaseCallBack {
 
+
+
     protected ILoadView<D> mILoadView;
     protected BaseServer mServer;
     private static final String TAG = "***Response***---->";
+    private Call mCall;
+
+    public DefaultCallback(Call call, ILoadView<D> loadView, BaseServer server){
+        mILoadView = loadView;
+        mCall = call;
+        mServer = server;
+    }
 
     @Override
     public void onLoadCache(long cacheTime, String cacheStr) {

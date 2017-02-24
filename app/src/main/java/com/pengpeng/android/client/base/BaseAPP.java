@@ -2,7 +2,6 @@ package com.pengpeng.android.client.base;
 
 import android.app.Application;
 
-import com.bumptech.glide.RequestManager;
 import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
 import com.pengpeng.android.client.utils.WindowUtils;
