@@ -1,6 +1,5 @@
 package com.pengpeng.android.client.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.Button;
@@ -11,6 +10,7 @@ import com.pengpeng.android.client.base.BaseActivity;
 import com.pengpeng.android.client.mvp.model.TestBean;
 import com.pengpeng.android.client.mvp.presenter.TestPresenter;
 import com.pengpeng.android.client.mvp.view.ILoadView;
+import com.pengpeng.android.client.utils.WIFIUtil;
 
 import java.util.List;
 
@@ -36,7 +36,6 @@ public class TestActivity extends BaseActivity implements ILoadView<TestBean> {
      */
     @BindView(R.id.btn)
     Button btn;
-    private TestPresenter testPresenter;
 
     @Override
     protected int layoutId() {
@@ -48,15 +47,19 @@ public class TestActivity extends BaseActivity implements ILoadView<TestBean> {
         super.onCreate(savedInstanceState);
         btn.setText("跳转act");
         Logger.e("执行了 onCreate");
-        testPresenter = new TestPresenter();
-        testPresenter.login(this);
+        mLoadPresenter = new TestPresenter();
+        ((TestPresenter)mLoadPresenter).login(this);
     }
 
     @OnClick(R.id.btn)
-    public void upToAct(){
+    public void upToAct() {
 //        Intent intent = new Intent(this,TwoActivity.class);
 //        startActivity(intent);
-        testPresenter.login(this);
+        if (WIFIUtil.isWifiConnected(this)) {
+            ((TestPresenter) mLoadPresenter).login(this);
+        } else {
+            Logger.e("无网络===");
+        }
         Logger.e("获取网络数据===");
     }
 

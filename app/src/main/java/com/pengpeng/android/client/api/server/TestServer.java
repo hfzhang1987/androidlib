@@ -12,7 +12,8 @@ package com.pengpeng.android.client.api.server;
 public class TestServer extends BaseServer {
 
     private static TestServer INSTANCE = new TestServer();
-    private final String DOMAIN = "http://172.16.49.37:8080/coamctech-assets-app/";
+    private final String DOMAIN = "https://172.16.49.37:8443/coamctech-assets-app/";
+//    private final String DOMAIN = "http://172.16.49.208:7777/";
     private TestServer(){
     }
     public static TestServer getInstance(){

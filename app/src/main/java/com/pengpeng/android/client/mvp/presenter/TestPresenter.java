@@ -45,12 +45,16 @@ public class TestPresenter extends LoadPresenter<TestBean> {
 
     public void login(ILoadView<TestBean> loadView) {
         hashMap = new HashMap<>();
-        hashMap.put("loginName", "13900001235");
-        hashMap.put("password", "12346789");
+        hashMap.put("loginName", "13581923880");
+        hashMap.put("password", "111111");
         hashMap = setRequestParams(hashMap);
         Call<ResponseBody> call = mTestApi.login(hashMap);
         loadData(false, call, loadView);
     }
+//    public void login(ILoadView<TestBean> loadView) {
+//        Call<ResponseBody> call = mTestApi.loginWP("9180053");
+//        loadData(false, call, loadView);
+//    }
 
     @Override
     protected Callback createCallBack(Call call, ILoadView<TestBean> loadView) {

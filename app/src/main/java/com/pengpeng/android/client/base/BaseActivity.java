@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
 import com.orhanobut.logger.Logger;
+import com.pengpeng.android.client.mvp.presenter.LoadPresenter;
 import com.pengpeng.android.client.ui.controller.BaseActController;
 
 import butterknife.ButterKnife;
@@ -20,6 +21,8 @@ import butterknife.ButterKnife;
  */
 
 public abstract class BaseActivity extends AppCompatActivity implements StatisticsInterface{
+
+    protected LoadPresenter mLoadPresenter;
 
     protected abstract int layoutId();
     @Override
@@ -77,7 +80,9 @@ public abstract class BaseActivity extends AppCompatActivity implements Statisti
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mLoadPresenter.onDestroy();
         Logger.e("执行了 onDestroy");
+
     }
 
 }

@@ -20,9 +20,12 @@ public class BaseAPP extends Application {
 
     private static final String TAG = "Pengpeng";
 
+    public static BaseAPP mBaseAPP;
+
 
     @Override
     public void onCreate() {
+        mBaseAPP = this;
         LeakCanary.install(this);
         initLogger();
         WindowUtils.setDisplayWidth_Height(this);

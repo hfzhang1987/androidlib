@@ -1,5 +1,6 @@
 package com.pengpeng.android.client.mvp.base.callback;
 
+import com.orhanobut.logger.Logger;
 import com.pengpeng.android.client.api.server.BaseServer;
 import com.pengpeng.android.client.mvp.view.ILoadView;
 
@@ -41,9 +42,12 @@ public abstract class DefaultCallback<D> extends BaseCallBack {
     }
     @Override
     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-        if (call.isCanceled())
+        if (call.isCanceled()){
+            Logger.e("Call is canceled!");
             return;
+        }
         if (!response.isSuccessful()){
+            Logger.e("Call is failed!");
             mILoadView.onFail(response.code(),TAG+response.message().toString());
             return;
         }
@@ -51,8 +55,10 @@ public abstract class DefaultCallback<D> extends BaseCallBack {
             String ObjectStr = response.body().string();
             List<D> list = parseResult(ObjectStr);
             if (list==null||list.size()==0){
+                Logger.e("no data return!");
                 mILoadView.onFail(BaseServer.NO_MORE,TAG + "#onResponse-> No More");
             }
+            Logger.e(BaseServer.NO_MORE+TAG + "#onResponse-> No More"+list.toArray());
             mILoadView.onSuccess(list);
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,7 +67,8 @@ public abstract class DefaultCallback<D> extends BaseCallBack {
 
     @Override
     public void onFailure(Call<ResponseBody> call, Throwable t) {
-        mILoadView.onFail(BaseServer.PARSE,TAG + t.toString());
+        Logger.e(BaseServer.FAILD +TAG + "#onResponse->"+ t.toString());
+        mILoadView.onFail(BaseServer.FAILD,TAG + t.toString());
     }
     protected abstract List<D> parseResult(String result);
 

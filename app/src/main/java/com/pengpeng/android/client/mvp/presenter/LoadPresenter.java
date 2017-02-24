@@ -4,7 +4,6 @@ import com.orhanobut.logger.Logger;
 import com.pengpeng.android.client.base.Config;
 import com.pengpeng.android.client.mvp.view.ILoadView;
 import com.pengpeng.android.client.utils.DateUtil;
-import com.pengpeng.android.client.utils.EncryptUtil;
 import com.pengpeng.android.client.utils.MD5Util;
 
 import java.util.ArrayList;
@@ -12,7 +11,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Set;
 
 import okhttp3.ResponseBody;
@@ -62,7 +60,7 @@ public abstract class LoadPresenter<D> {
                 sbs.append(key).append(hashMap.get(key));
         }
         sbs.append(Config._SECRET);
-        Logger.e("setRequestParams sign ==> " + sbs);
+        Logger.e("setRequestParams _sign ==> " + sbs);
         hashMap.put("_sign",MD5Util.getMD5Str(sbs.toString()).toUpperCase());
         return hashMap;
     }
@@ -80,4 +78,9 @@ public abstract class LoadPresenter<D> {
 
     protected abstract Callback createCallBack(Call call, ILoadView<D> loadView);
 
+    public void onDestroy(){
+        mCall.cancel();
+        mCallback =null;
+        hashMap = null;
+    }
 }
